@@ -1,0 +1,18 @@
+{
+  "name": "pub-sub",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "repository": "https://github.com/Layssaa/pub-sub.git",
+  "author": "Layssa <layssa.lima166@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "start nodemon pub-app/server.js && start nodemon sub-app/server.js && start nodemon sub-2-app/server.js "
+  },
+  "dependencies": {
+    "express": "^4.17.3",
+    "ioredis": "^4.28.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
