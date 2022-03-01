@@ -1,14 +1,17 @@
 const router = require("express").Router();
-const { redisPublish } = require("./redis");
+const { eventEmit } = require("./redis");
 
-router.get("/", async (req, res) => {
-  const user = {
-    id: "123456",
-    name: "Davis",
-  };
+router.post("/send", async (req, res) => {
+  const { user, message } = req.body;
+  const time = new Date().toString();
 
-  await redisPublish(user);
-  res.send("Publish one event");
+  try {
+    await eventEmit({ user, message, time });
+    res.send("Publish one event");
+  } catch (error) {
+    console.log(error);
+    res.send(error.nessage).status(200);
+  }
 });
 
 module.exports = { router };
