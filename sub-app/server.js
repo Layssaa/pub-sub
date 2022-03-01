@@ -12,7 +12,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(router);
 
-// redisSubscribe();
 eventEmitter.emit("received-notify");
 
 app.listen(3000, () => {

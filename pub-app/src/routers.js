@@ -7,7 +7,7 @@ router.post("/send", async (req, res) => {
 
   try {
     await eventEmit({ user, message, time });
-    res.send("Publish one event");
+    res.send({ message: "Publish one event" });
   } catch (error) {
     console.log(error);
     res.send(error.nessage).status(200);

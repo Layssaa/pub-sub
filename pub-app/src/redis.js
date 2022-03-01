@@ -22,7 +22,6 @@ module.exports = {
   redisClient,
   redisPublish,
   async eventEmit(data) {
-    console.log(data);
     eventEmitter.emit("send-notify", data);
   },
 };

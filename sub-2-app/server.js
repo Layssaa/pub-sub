@@ -17,8 +17,6 @@ app.use(router);
 
 eventEmitter.emit("received-notify");
 
-// redisSubscribe();
-
 app.listen(3006, () => {
   console.log("SUB SECOND server runing at port", 3006);
 });
