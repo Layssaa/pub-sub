@@ -10,9 +10,6 @@ redisClient.on("error", (err) => {
 });
 
 const redisPublish = async (data) => {
-  console.log("Send notification!");
-  console.log(data);
-
   await redisClient.publish("notify-servers", JSON.stringify(data));
 };
 

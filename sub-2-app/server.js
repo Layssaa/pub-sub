@@ -1,14 +1,18 @@
 const express = require("express");
+const app = express();
+
 const { EventEmitter } = require("events");
 
-const { redisSubscribe } = require("./src/redis");
+const { subChannelNotify, subChannelChat } = require("./src/redis");
 const { router } = require("./src/routers");
 
 const eventEmitter = new EventEmitter();
 
-eventEmitter.on("received-notify", redisSubscribe);
+eventEmitter.on("received-notify", () => {
+  subChannelNotify();
+  subChannelChat();
+});
 
-const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
