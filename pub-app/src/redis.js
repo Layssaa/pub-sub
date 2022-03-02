@@ -18,7 +18,7 @@ eventEmitter.on("send-notify", redisPublish);
 module.exports = {
   redisClient,
   redisPublish,
-  async eventEmit(data) {
-    eventEmitter.emit("send-notify", data);
+  async eventEmit(_message) {
+    eventEmitter.emit("send-notify", _message);
   },
 };

@@ -3,7 +3,7 @@ const app = express();
 
 const { EventEmitter } = require("events");
 
-const { subChannelNotify, subChannelChat } = require("./src/redis");
+const { subChannelNotify, subChannelChat } = require("./src/messages");
 const { router } = require("./src/routers");
 
 const eventEmitter = new EventEmitter();

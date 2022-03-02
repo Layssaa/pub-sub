@@ -1,6 +1,7 @@
 const redis = require("ioredis");
 
 const redisClient = redis.createClient();
+let messageChat = [];
 
 const subChannelNotify = async () => {
   return await redisClient.subscribe("notify-servers");
@@ -11,10 +12,12 @@ const subChannelChat = async () => {
 };
 
 redisClient.on("message", (channel, message) => {
-  console.log("Received data :" + message);
+  console.log(message);
+  return messageChat.push(JSON.parse(message));
 });
 
 module.exports = {
   subChannelNotify,
   subChannelChat,
+  messageChat,
 };

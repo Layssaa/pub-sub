@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { sendToChat } = require("./chat");
+const { messageChat } = require("./messages");
 
 const sendMessage = async (req, res) => {
   const { user, message } = req.body;
