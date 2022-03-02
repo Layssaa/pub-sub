@@ -12,7 +12,7 @@ const subChannelChat = async () => {
 };
 
 redisClient.on("message", (channel, message) => {
-  console.log(message);
+  console.log(JSON.parse(message).message);
   return messageChat.push(JSON.parse(message));
 });
 
